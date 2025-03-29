@@ -1,0 +1,19 @@
+@startuml
+!include httpsraw.githubusercontent.comRicardoNiepelC4-PlantUMLmasterC4_Context.puml
+
+' Акторы
+Person_Ext(owner, Собственник, Конечный пользователь, управляющий квартирой и доп. услугами (домофон, шлагбаум).)
+
+' Системная граница PropDevelopment
+System_Boundary(propDev, PropDevelopment) {
+    System(propDevSys, PropDevelopment System, Набор сервисов (витрина, tenant-core-app, CRM, финсервисы).)
+}
+
+' Внешняя система партнёра (SmartHome)
+System_Ext(smartHomePartner, SmartHome Partner System, Внешняя платформа для умного дома, биометрии и распознавания номеров.)
+
+' Связи
+Rel(owner, propDevSys, Использует мобильное приложение для собственников, Mobile App (iOSAndroid))
+Rel(propDevSys, smartHomePartner, Интеграция для управления домофоном и шлагбаумом, API  Secure channel)
+
+@enduml

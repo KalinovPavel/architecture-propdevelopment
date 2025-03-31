@@ -1,12 +1,12 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: viewer
+  name: viewer-rb
   namespace: default
 subjects:
-  - kind: User
+  - kind: ServiceAccount
     name: viewer
-    apiGroup: rbac.authorization.k8s.io
+    namespace: default
 roleRef:
   kind: Role
   name: viewer
@@ -15,12 +15,12 @@ roleRef:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: editor
+  name: editor-rb
   namespace: default
 subjects:
-  - kind: User
+  - kind: ServiceAccount
     name: editor
-    apiGroup: rbac.authorization.k8s.io
+    namespace: default
 roleRef:
   kind: Role
   name: editor
@@ -29,12 +29,12 @@ roleRef:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: admin
+  name: admin-rb
   namespace: default
 subjects:
-  - kind: User
+  - kind: ServiceAccount
     name: admin
-    apiGroup: rbac.authorization.k8s.io
+    namespace: default
 roleRef:
   kind: Role
   name: admin
